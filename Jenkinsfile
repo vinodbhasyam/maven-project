@@ -15,7 +15,7 @@ stages{
 	{
 		steps{
 			sh 'mvn clean package'
-			archiveArtifacts artifacts:'**/targets/*.war'
+			archiveArtifacts artifacts:'**/target/*.war'
 		}
 		post
 		{
