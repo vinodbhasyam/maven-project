@@ -1,5 +1,8 @@
 pipeline{
 agent any
+tools{
+	maven 'JMS_Maven'
+     }
 stages 
 	{
         stage('Build') 
