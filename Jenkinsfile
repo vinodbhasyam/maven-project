@@ -5,7 +5,7 @@ tools
 	maven 'JMS_Maven'
 }
 parameters{
-string (name:'tomcat-staging', defaultValue:'18.130.126.122', description:'')
+string (name:'tomcat-staging', defaultValue:'18.130.126.122', description:'Staging Server')
 }
 triggers{
 pollSCM('* * * * *')
