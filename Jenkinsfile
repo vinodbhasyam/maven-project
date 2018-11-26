@@ -14,7 +14,7 @@ stages{
 	stage('Build')
 	{
 		steps{
-			sh 'mvn clean build'
+			sh 'mvn clean package'
 			archiveartifacts artifacts:'**/targets/*.war'
 		}
 		post
