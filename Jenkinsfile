@@ -29,7 +29,7 @@ stages{
 	{
 		steps{
 			 
-			 sh "scp -i /var/lib/jenkins/tomcat-demo.pem -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/package_pipelpine/webapp/target/*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat8/webapps"
+			 sh "scp -i /var/lib/jenkins/tomcat-test.pem -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/package_pipelpine/webapp/target/*.war ec2-user@${params.tomcat_staging}:/var/lib/tomcat8/webapps"
 
 		}
 	}
