@@ -1,5 +1,9 @@
 pipeline{
 agent any
+tools
+{
+	maven 'JMS_Maven'
+}
 parameters{
 string (name:'tomcat-staging', defaultValue:'', description:'')
 }
