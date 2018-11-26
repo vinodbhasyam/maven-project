@@ -25,5 +25,13 @@ stages{
 		  }
 		}
 	}
+	stage('Deploy to Staging')
+	{
+		steps{
+			 
+			 sh "scp -i /var/lib/jenkins/tomcat-demo.pem **/target/*.war ec2-user@${params.tomcat-staging}:/var/lib/tomcat8/webapps"
+
+		}
+	}
 }
 }
