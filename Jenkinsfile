@@ -3,48 +3,26 @@ agent any
 tools{
 	maven 'JMS_Maven'
      }
-stages 
+parameters{
+string (name:'tomcat-staging', defaultValue:'', description:'')
+}
+triggers{
+pollSCM('* * * * *')
+}
+stages{
+	stage('build')
 	{
-        stage('Build') 
-		{
-            steps 
-			{
-                sh 'mvn clean package'
-            }
-			post 
-			{
-				success
-				{
-					echo 'Now Archiving!!'
-					archiveArtifacts artifacts: '**/target/*.war'
-				}
-			}
-        }
-		
-		stage('Deploy to Staging')
-		{
-			steps
-			{
-				build job:'deploy-to-staging'
-			}
+		steps{
+			sh 'mvn clean build'
+			archiveartifacts artifacts:'**/targets/*.war'
 		}
-		stage('Deploy to Production')
+		post
 		{
-			steps{
-			timeout(time:5,unit:'DAYS'){
-			input message:'Approve Production Deployment?'
-			}
-			build job:'deploy-to-production'
-			}
-			post
-			{
-				success{
-				echo 'Production Deployment :: Success !!'
-				}
-				failure{
-				echo 'Production Deployment :: Failed !!'
-				}
-			}
+		  success
+		  {
+			echo 'package created'
+		  }
 		}
-    }
+	}
+}
 }
