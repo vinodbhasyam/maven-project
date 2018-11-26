@@ -1,22 +1,20 @@
 pipeline{
 agent any
-stages
-{
-	stage('initialize')
-	{
-		steps{
-			sh "'
-			echo "PATH= ${PATH}"
-			echo "M2_HOME=${M2_HOME}"
-			"'
+stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
 		}
-	}
-	stage('Build')
-	{
-		steps{
-		echo "Hello World!"
 		}
-	}
-	
-}
-}
