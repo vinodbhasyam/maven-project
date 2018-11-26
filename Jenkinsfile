@@ -1,8 +1,5 @@
 pipeline{
 agent any
-tools{
-	maven 'JMS_Maven'
-     }
 parameters{
 string (name:'tomcat-staging', defaultValue:'', description:'')
 }
@@ -10,7 +7,7 @@ triggers{
 pollSCM('* * * * *')
 }
 stages{
-	stage('build')
+	stage('Build')
 	{
 		steps{
 			sh 'mvn clean build'
