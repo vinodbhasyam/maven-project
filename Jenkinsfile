@@ -6,7 +6,12 @@ pipeline{
 	
 	steps
 	{
-		sh 'echo Hello World!!'
+		'mvn clean package'
+	}
+	post{
+		success{
+		 sh 'echo package built successfully'	
+		}
 	}
 	}
 	stage('Deploy')
