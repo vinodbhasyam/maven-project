@@ -1,17 +1,14 @@
-pipeline {
-agent any
-stages{
-stage('Build')
-{
+pipeline{
+	agent any
+	stages{
+	stage('Build'){
 	steps{
-	sh echo "Build Started !!"
+		sh 'echo Hello World!!'
 	}
-}
-stage('Package')
-{
-steps{
-	sh echo "Package Started !!"
 	}
-}
-}
+	stage('Deploy'){
+		sh 'echo Hello World2!!'
+	}
+
+	}
 }
