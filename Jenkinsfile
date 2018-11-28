@@ -13,7 +13,7 @@ pipeline{
 	}
 	post{
 		success{
-		 sh 'echo package built successfully'	
+		 archiveArtifacts artifact:'**/*.war'	
 		}
 	}
 	}
