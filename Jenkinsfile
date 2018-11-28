@@ -1,12 +1,13 @@
 pipeline {
 agent any
 stages{
-stage('Build') {
-sh echo 'Build Started!!'
+stage('Build')
+{
+	sh echo "Build Started !!"
 }
-stage('Run Code Analyis'){
-sh echo 'Code Analysis Started!!'
+stage('Package')
+{
+	sh echo "Package Started !!"
 }
-
 }
 }
