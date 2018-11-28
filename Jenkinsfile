@@ -13,6 +13,7 @@ pipeline{
 	}
 	post{
 		success{
+		 sh 'mvn checkstyle:checkstyle'
 		 archiveArtifacts artifacts:'**/*.war'	
 		}
 	}
