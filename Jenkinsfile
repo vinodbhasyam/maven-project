@@ -14,7 +14,7 @@ pipeline{
 	post{
 		success{
 		 sh 'mvn checkstyle:checkstyle'
-		 publishIssues issues:checkstyle
+		 checkstyle canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''
 		 archiveArtifacts artifacts:'**/*.war'	
 		}
 	}
